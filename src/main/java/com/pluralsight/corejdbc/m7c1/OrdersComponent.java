@@ -10,7 +10,7 @@ public class OrdersComponent {
 		try(Connection con = ConnectionPool.getConnection();) {
 
 		PreparedStatement preparedStatement 
-			= con.prepareStatement("select * from orderDetails");
+			= con.prepareStatement("select * from orderdetails");
 		
 		preparedStatement.execute();
 

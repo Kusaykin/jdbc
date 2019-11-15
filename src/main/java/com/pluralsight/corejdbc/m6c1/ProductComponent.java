@@ -16,10 +16,10 @@ public class ProductComponent {
 	public boolean storeCLOB(String prodLine, InputStreamReader inStream) throws Exception {
 		
 		String sqlString = 
-				"UPDATE productLines SET htmlDescription = ? where productLine = ?";
+				"UPDATE productlines SET htmlDescription = ? where productLine = ?";
 		
 		try(Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=example&serverTimezone=UTC");
 				
 		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
@@ -36,10 +36,10 @@ public class ProductComponent {
 	
 	public Reader readCLOB(String prodLine) throws Exception {	
 		String sqlString = 
-				"SELECT htmlDescription FROM productLines WHERE productLine = ?";
+				"SELECT htmlDescription FROM productlines WHERE productLine = ?";
 		
 		try(Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=example&serverTimezone=UTC");
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
@@ -58,10 +58,10 @@ public class ProductComponent {
 
 	public boolean storeBLOB(String prodLine, FileInputStream inStream) throws Exception {
 		String sqlString = 
-				"UPDATE productLines SET image = ? where productLine = ?";
+				"UPDATE productlines SET image = ? where productLine = ?";
 		
 		try(Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=example&serverTimezone=UTC");
 		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
 		
 		preparedStatement.setBinaryStream(1, inStream);
@@ -78,10 +78,10 @@ public class ProductComponent {
 	
 	public InputStream readBLOB(String prodLine) throws Exception {
 		String sqlString = 
-				"SELECT image FROM productLines WHERE productLine = ?";
+				"SELECT image FROM productlines WHERE productLine = ?";
 		
 		try(Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=pluralsight&serverTimezone=UTC");
+				"jdbc:mysql://localhost:3306/classicmodels?user=root&password=example&serverTimezone=UTC");
 
 		
 		PreparedStatement preparedStatement = connection.prepareStatement(sqlString);){
